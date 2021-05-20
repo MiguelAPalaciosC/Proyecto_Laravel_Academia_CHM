@@ -30,10 +30,12 @@ class RespuestaEController extends Controller
 
                 $respuesta=DB::table('respuesta as r')
                 ->join('tarea as t','r.id_tarea','=','t.id_tarea')
-                ->join('users as u','r.id_usuario','=','u.id')
-                ->select('r.id_respuesta','r.nombre','r.descripcion','r.nota','t.nombre as id_tarea','u.name as id_usuario')
+                ->join('asignatura as asi','t.id_asignatura','=','asi.id_asignatura')
+                ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
+                ->join('users as us','asiU.id_usuario','=','us.id')
+                ->select('r.id_respuesta','r.nombre','r.descripcion','r.nota','t.nombre as id_tarea','us.name as id')
+                ->where('us.id','=','16')
                 ->orderBy('id_respuesta','asc')
-                ->where('u.id','=',$idusuario)
                 ->paginate(10);
 
                 $tarea=DB::table('tarea')->get();
