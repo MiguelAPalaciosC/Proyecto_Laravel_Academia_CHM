@@ -38,6 +38,13 @@ Route::get('/home', 'HomeController@index');
 Route::resource('academia/asignatura','AsignaturaAdminController');
 Route::resource('academia/inscribir','AsignaturaUsuarioController');
 
+Route::resource('academia/docente','AsignaturaDController');
+
+Route::resource('academia/respuesta','RespuestaEController');
+Route::resource('academia/respuestas','RespuestaDController');
+
+Route::resource('academia/nota','NotaController');
+
 Route::resource('estudiante','EstudianteController');
 Route::get('materia/{nombre}', 'EstudianteController@busquedaMaterias')->name('materia');
 Route::resource('profesor','ProfesorController');

@@ -24,7 +24,10 @@
     <link href="{{ asset('css/inicio.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/estudiantes.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profesores.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Work+Sans:300,400,500,700%7CZilla+Slab:300,400,500,700,700i%7CGloria+Hallelujah"> -->
+    <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"> -->
 
     <style>
         body {
@@ -86,9 +89,11 @@
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==2)
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('TareaController@index') }}">Actividades</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('RespuestaDController@index') }}">Respuestas</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==3)
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('RespuestaEController@index') }}">Actividades</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('NotaController@index') }}">Notas</a></li>                               
                                 @endif
                             </ul>
                         </li>
@@ -120,6 +125,8 @@
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
     </script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    {{-- <script src="{{ elixir('js/core.min.js') }}"></script> --}}
+    {{-- <script src="{{ elixir('js/script.js') }}"></script> --}}
 </body>
 
 </html>

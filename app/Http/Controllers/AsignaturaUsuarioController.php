@@ -7,6 +7,10 @@ use sisVentas\Models\AsignaturaUsuario;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
+use sisVentas\Http\Requests\UsuarioFormRequest;
+use sisVentas\User;
+use sisVentas\Http\Requests\AsignaturaFormRequest;
+use sisVentas\Models\Asignatura;
 
 class AsignaturaUsuarioController extends Controller
 {
@@ -18,13 +22,19 @@ class AsignaturaUsuarioController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $asigus=DB::select('SELECT au.id_relacion,a.nombre as id_asignatura,u.name as id_usuario FROM asignaturaUsuario as au JOIN users as u ON (au.id_usuario=u.id) JOIN asignatura as a on (au.id_asignatura=a.id_asignatura)');
+            if((Auth::user()->usertype_id_usertype)==1){
 
-            $asignatura=DB::table('asignatura')->get();
+                $asigus=DB::select('SELECT au.id_relacion,a.nombre as id_asignatura,u.name as id_usuario FROM asignaturaUsuario as au JOIN users as u ON (au.id_usuario=u.id) JOIN asignatura as a on (au.id_asignatura=a.id_asignatura)');
 
-            $users=DB::table('users')->get();
+                $asignatura=DB::table('asignatura')->get();
 
-            return view('academia.inscribir.index',["asigus"=>$asigus,"asignatura"=>$asignatura,"users"=>$users]);
+                $users=DB::table('users')->get();
+
+                return view('academia.inscribir.index',["asigus"=>$asigus,"asignatura"=>$asignatura,"users"=>$users]);
+            }
+            else{
+                return Redirect::to('home')->with('info','El usuario no cuenta con los permisos necesarios para acceder al modulo');
+            }
         }
     }
 

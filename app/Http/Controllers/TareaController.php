@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use sisVentas\Http\Requests;
 use DB;
-use App\Models\Asignatura;
 use Illuminate\Support\Facades\Redirect;
 use sisVentas\Http\Requests\TareaFormRequest;
 use sisVentas\Models\Tarea;
+use sisVentas\Http\Requests\AsignaturaFormRequest;
+use sisVentas\Models\Asignatura;
+
 
 class TareaController extends Controller
 {

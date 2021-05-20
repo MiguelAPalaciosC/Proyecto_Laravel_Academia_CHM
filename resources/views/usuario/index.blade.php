@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="fondopng">
     <div class="container">
         @include('usuario.create')
         <div class="row">
@@ -63,4 +64,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

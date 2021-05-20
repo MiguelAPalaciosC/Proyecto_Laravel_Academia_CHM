@@ -14,7 +14,7 @@ class Respuesta extends Model
 
 
     protected $fillable =[
-        'nombre','descripcion','nota','id_tarea','id_usuario','archivo'
+        'nombre','descripcion','nota','id_tarea','id_usuario'
     ];
 
     protected $guarded =[

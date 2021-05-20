@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use sisVentas\Http\Requests\UsuarioFormRequest;
+use sisVentas\User;
+
 
 class AsignaturaAdminController extends Controller
 {
