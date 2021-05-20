@@ -13,7 +13,7 @@
                                 <h2 class="section-heading text-uppercase">TAREAS</h2>
                             </div>
                             <div class="contenedor-modal col-md-2">
-                                <a href="" data-target="#modal-create-tarea" data-toggle="modal" ><button
+                                <a  href="" data-target="#modal-create-tarea" data-toggle="modal" ><button id="boton"
                                         class="btn btn-info"><font face="verdana" size=3>+</font></button></a>
                             </div>
                         </div>
