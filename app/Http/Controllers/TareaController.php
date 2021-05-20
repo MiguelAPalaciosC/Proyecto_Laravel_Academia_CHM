@@ -21,57 +21,64 @@ class TareaController extends Controller
     }
     public function index(Request $request)
     {
-        if ($request){
-            if((Auth::user()->usertype_id_usertype)==2){
+        if ($request) {
+            if ((Auth::user()->usertype_id_usertype) == 2) {
                 $idusuario = (Auth::user()->id);
-                $tarea=DB::table('tarea as ta')
-                ->join('asignatura as asi','ta.id_asignatura','=','asi.id_asignatura')
-                ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
-                ->join('users as u','asiU.id_usuario','=','u.id')
-                ->select('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.codigo as codigo','asi.nombre as id_asignatura','ta.estado')
-                ->where('u.id','=',$idusuario)
-                ->orderBy('id_tarea','asc')
-                ->paginate(10);
-    
-                $asignatura=DB::table('asignatura')->get();
-    
-                
-                return view('academia.tarea.index',["tarea"=>$tarea, "asignatura"=>$asignatura]);
-            }
-            else{
-                return Redirect::to('home')->with('info','El usuario no cuenta con los permisos necesarios para acceder al modulo');
-            }
+                $tarea = DB::table('tarea as ta')
+                    ->join('asignatura as asi', 'ta.id_asignatura', '=', 'asi.id_asignatura')
+                    ->join('asignaturaUsuario as asiU', 'asi.id_asignatura', '=', 'asiU.id_asignatura')
+                    ->join('users as u', 'asiU.id_usuario', '=', 'u.id')
+                    ->select('ta.id_tarea', 'ta.nombre', 'ta.descripcion', 'ta.fecha_entrega', 'asi.codigo as codigo', 'asi.nombre as id_asignatura', 'ta.estado')
+                    ->where('u.id', '=', $idusuario)
+                    ->orderBy('id_tarea', 'desc')
+                    ->paginate(10);
 
+                $asignatura = DB::table('asignatura as asi')
+                    ->join('asignaturaUsuario as asiU', 'asi.id_asignatura', '=', 'asiU.id_asignatura')
+                    ->join('users as u', 'asiU.id_usuario', '=', 'u.id')
+                    ->select('asi.id_asignatura', 'asi.codigo', 'asi.nombre')
+                    ->where('u.id', '=', $idusuario)
+                    ->orderBy('id_asignatura', 'asc')
+                    ->paginate(10);
+
+
+                return view('academia.tarea.index', ["tarea" => $tarea, "asignatura" => $asignatura]);
+            } else {
+                return Redirect::to('home')->with('info', 'El usuario no cuenta con los permisos necesarios para acceder al modulo');
+            }
         }
     }
     //Método que almacena los datos provenientes del formulario de una vista en una tabla de la bd
-    public function store (TareaFormRequest $request){
-        $tarea=new Tarea();
-        $tarea->nombre=$request->get('nombre');
-        $tarea->descripcion=$request->get('descripcion');
-        $tarea->fecha_entrega=$request->get('fecha_entrega');
-        $tarea->id_asignatura=$request->get('id_asignatura');
-        $tarea->estado=$request->get('estado');
+    public function store(TareaFormRequest $request)
+    {
+        $tarea = new Tarea();
+        $tarea->nombre = $request->get('nombre');
+        $tarea->descripcion = $request->get('descripcion');
+        $tarea->fecha_entrega = $request->get('fecha_entrega');
+        $tarea->id_asignatura = $request->get('id_asignatura');
+        $tarea->estado = $request->get('estado');
         $tarea->save();
-        return Redirect::to('academia/tarea')->with('info','Tarea Agregada Correctamente');
+        return Redirect::to('academia/tarea')->with('info', 'Tarea Agregada Correctamente');
     }
 
     //Método que actualiza los datos provenientes del formulario de una vista en una tabla de la bd
-    public function update(TareaFormRequest $request,$id){
-        $tarea=Tarea::findOrFail($id);
-        $tarea->nombre=$request->get('nombre');
-        $tarea->descripcion=$request->get('descripcion');
-        $tarea->fecha_entrega=$request->get('fecha_entrega');
-        $tarea->id_asignatura=$request->get('id_asignatura');
-        $tarea->estado=$request->get('estado');
+    public function update(TareaFormRequest $request, $id)
+    {
+        $tarea = Tarea::findOrFail($id);
+        $tarea->nombre = $request->get('nombre');
+        $tarea->descripcion = $request->get('descripcion');
+        $tarea->fecha_entrega = $request->get('fecha_entrega');
+        $tarea->id_asignatura = $request->get('id_asignatura');
+        $tarea->estado = $request->get('estado');
         $tarea->update();
-        return Redirect::to('academia/tarea')->with('info','Tarea Actualizada Correctamente');
+        return Redirect::to('academia/tarea')->with('info', 'Tarea Actualizada Correctamente');
     }
 
     //Método para eliminar registros de una tabla, redirecciona a la vista que este indicada en el método index
-    public function destroy($id){
-        $tarea=Tarea::findOrFail($id);
+    public function destroy($id)
+    {
+        $tarea = Tarea::findOrFail($id);
         $tarea->delete();
-        return Redirect::to('academia/tarea')->with('info','Tarea Eliminada Correctamente');
+        return Redirect::to('academia/tarea')->with('info', 'Tarea Eliminada Correctamente');
     }
 }

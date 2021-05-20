@@ -8,13 +8,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-12">
                                 <h2 class="section-heading text-uppercase">NOTAS</h2>
                             </div>
-                            <div class="contenedor-modal col-md-2">
+                            {{-- <div class="contenedor-modal col-md-2">
                                 <a href="" data-target="#modal-create-tarea" data-toggle="modal" ><button
                                         class="btn btn-info"><font face="verdana" size=3>+</font></button></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="panel-body">
@@ -26,7 +26,7 @@
                                     <!-- {{$uno=1}} -->
                                     @foreach ($tarea as $tr)
 
-                                    <div class="col-sm-12 col-lg-4 mb-3">
+                                    <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-body available" id="tarjetas">
                                                 <!-- {{$var=0}} -->
