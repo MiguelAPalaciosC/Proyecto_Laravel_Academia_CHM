@@ -21,12 +21,12 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="table-responsive">
-                                    
+
                                     <!-- {{$cont=0}} -->
                                     <!-- {{$uno=1}} -->
                                     @foreach ($asignatura as $a)
-                                    
-                                    <div class="col-md-6">
+
+                                    <div class="col-sm-12 col-lg-4 mb-3">
                                         <div class="card">
                                             <div class="card-body available" id="tarjetas">
                                                 <!-- {{$var=0}} -->
@@ -35,16 +35,16 @@
                                                     <h4 class="card-title">{{ $a->codigo }}</h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">Notas: </h6>
                                                 @foreach ($nota as $n)
-                                                @if($a->id_asignatura==$n->id_asignatura)
-                                                    @if($n->id_usuario == (Auth::user()->id))
-                                                    <p class="card-text">{{ $n->nota }}</p>
-                                                    <!-- {{$cont=($cont)+($uno)}} -->
-                                                    <!-- {{$var=$var+$n->nota}} -->
+                                                    @if($a->id_asignatura==$n->id_asignatura)
+                                                        @if($n->id_usuario == (Auth::user()->id))
+                                                        <p class="card-text">{{ $n->nota }}</p>
+                                                        <!-- {{$cont=$cont+$uno}} -->
+                                                        <!-- {{$var=$var+$n->nota}} -->
+                                                        @endif
                                                     @endif
-                                                @endif
                                                 @endforeach
                                                 
-                                                <p class="card-text">Definitiva: {{ ($var/$cont) }}</p>
+                                                <p class="card-text">Definitiva: {{ ($var/2) }}</p>
                                                 <br><br>
                                             </div>
                                         </div>

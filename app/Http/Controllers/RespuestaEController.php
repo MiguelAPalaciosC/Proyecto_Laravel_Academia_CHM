@@ -24,12 +24,20 @@ class RespuestaEController extends Controller
     {
         if ($request) {
             if((Auth::user()->usertype_id_usertype)==3){
+                $idusuario = (Auth::user()->id);      
+                
+                $asigus=DB::select('SELECT au.id_relacion,a.nombre as id_asignatura,u.name as id_usuario FROM asignaturaUsuario as au JOIN users as u ON (au.id_usuario=u.id) JOIN asignatura as a on (au.id_asignatura=a.id_asignatura)');
 
-                $respuesta=DB::table('respuesta')->get();
-                $respuesta=DB::select('SELECT r.id_respuesta,r.nombre,r.descripcion,r.nota,t.nombre as id_tarea,u.name as id_usuario FROM respuesta as r JOIN tarea as t ON (r.id_tarea=t.id_tarea) JOIN users as u ON (r.id_usuario=u.id)');
+                $respuesta=DB::table('respuesta as r')
+                ->join('tarea as t','r.id_tarea','=','t.id_tarea')
+                ->join('users as u','r.id_usuario','=','u.id')
+                ->select('r.id_respuesta','r.nombre','r.descripcion','r.nota','t.nombre as id_tarea','u.name as id_usuario')
+                ->orderBy('id_respuesta','asc')
+                ->where('u.id','=',$idusuario)
+                ->paginate(10);
 
                 $tarea=DB::table('tarea')->get();
-                return view('academia.respuesta.index',["respuesta"=>$respuesta,"tarea"=>$tarea]);
+                return view('academia.respuesta.index',["respuesta"=>$respuesta,"asigus"=>$asigus,"tarea"=>$tarea]);
             }
             else{
                 return Redirect::to('home')->with('info','El usuario no cuenta con los permisos necesarios para acceder al modulo');

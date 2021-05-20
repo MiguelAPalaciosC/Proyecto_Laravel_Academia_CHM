@@ -24,8 +24,15 @@ class RespuestaDController extends Controller
     {
         if ($request) {
             if((Auth::user()->usertype_id_usertype)==2){
-                $respuesta=DB::table('respuesta')->get();
-                $respuesta=DB::select('SELECT r.id_respuesta,r.nombre,r.descripcion,r.nota,t.nombre as id_tarea,u.name as id_usuario FROM respuesta as r JOIN tarea as t ON (r.id_tarea=t.id_tarea) JOIN users as u ON (r.id_usuario=u.id)');
+                $idusuario = (Auth::user()->id);
+
+                $respuesta=DB::table('respuesta as r')
+                ->join('tarea as t','r.id_tarea','=','t.id_tarea')
+                ->join('users as u','r.id_usuario','=','u.id')
+                ->select('r.id_respuesta','r.nombre','r.descripcion','r.nota','t.nombre as id_tarea','u.name as id_usuario')
+                ->orderBy('id_respuesta','asc')
+                ->where('u.id','=',$idusuario)
+                ->paginate(10);
 
                 return view('academia.respuestas.index',["respuesta"=>$respuesta]);
             }
