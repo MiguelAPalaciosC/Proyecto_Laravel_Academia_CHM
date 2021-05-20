@@ -29,13 +29,22 @@ class NotaController extends Controller
                 ->join('asignaturaUsuario as asiU','a.id_asignatura','=','asiU.id_asignatura')
                 ->join('users as u','asiU.id_usuario','=','u.id')
                 ->select('r.id_respuesta','t.id_tarea as id_tarea','u.id as id_usuario','a.id_asignatura as id_asignatura','a.nombre as nombre','r.nota')
-                ->where('u.id','=','16')
                 ->orderBy('id_respuesta','asc')
                 ->paginate(10);
 
                 $asignatura=DB::table('asignatura')->get();
 
-                return view('academia.nota.index',["nota"=>$nota,"asignatura"=>$asignatura]);
+                $tarea=DB::table('tarea as ta')
+                ->join('asignatura as asi','ta.id_asignatura','=','asi.id_asignatura')
+                ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
+                ->join('users as u','asiU.id_usuario','=','u.id')
+                ->select('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.codigo as codigo','asi.nombre as id_asignatura','ta.estado')
+                ->groupby('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.codigo','asi.nombre','ta.estado')
+                ->where('u.id','=',$idusuario)
+                ->orderBy('id_tarea','asc')
+                ->paginate(10);
+
+                return view('academia.nota.index',["nota"=>$nota,"asignatura"=>$asignatura,"tarea"=>$tarea]);
             }
             else{
                 return Redirect::to('home')->with('info','El usuario no cuenta con los permisos necesarios para acceder al modulo');

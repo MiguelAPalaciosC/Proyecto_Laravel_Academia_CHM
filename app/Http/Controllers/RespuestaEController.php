@@ -26,8 +26,6 @@ class RespuestaEController extends Controller
             if((Auth::user()->usertype_id_usertype)==3){
                 $idusuario = (Auth::user()->id);      
                 
-                $asigus=DB::select('SELECT au.id_relacion,a.nombre as id_asignatura,u.name as id_usuario FROM asignaturaUsuario as au JOIN users as u ON (au.id_usuario=u.id) JOIN asignatura as a on (au.id_asignatura=a.id_asignatura)');
-
                 $respuesta=DB::table('respuesta as r')
                 ->join('tarea as t','r.id_tarea','=','t.id_tarea')
                 ->join('asignatura as asi','t.id_asignatura','=','asi.id_asignatura')
@@ -38,8 +36,16 @@ class RespuestaEController extends Controller
                 ->orderBy('id_respuesta','asc')
                 ->paginate(10);
 
-                $tarea=DB::table('tarea')->get();
-                return view('academia.respuesta.index',["respuesta"=>$respuesta,"asigus"=>$asigus,"tarea"=>$tarea]);
+                $tarea=DB::table('tarea as ta')
+                ->join('asignatura as asi','ta.id_asignatura','=','asi.id_asignatura')
+                ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
+                ->join('users as u','asiU.id_usuario','=','u.id')
+                ->select('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.codigo as codigo','ta.id_asignatura','ta.estado')
+                ->where('u.id','=',$idusuario)
+                ->orderBy('id_tarea','asc')
+                ->paginate(10);
+
+                return view('academia.respuesta.index',["respuesta"=>$respuesta,"tarea"=>$tarea]);
             }
             else{
                 return Redirect::to('home')->with('info','El usuario no cuenta con los permisos necesarios para acceder al modulo');
