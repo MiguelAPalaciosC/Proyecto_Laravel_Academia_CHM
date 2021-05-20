@@ -35,16 +35,16 @@
 										<td>{{ $as->nombre}}</td>
 										<td>{{ $as->id_usuario}}</td>
                                         <td>	
-                                            <a href="{{ route('asignatura.edit',$as->id_asignatura) }}"  ><button class="btn btn-info">Editar</button></a>
+                                            <a href="" data-target="#modal-edit-{{ $as->id_asignatura }}"  data-toggle="modal"><button class="btn btn-info">Editar</button></a>
+                                            <a href="" data-target="#modal-delete-{{ $as->id_asignatura }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                                         </td>
-                                        <td>
-                                            {!! Form::Open(['route'=>['asignatura.destroy',$as->id_asignatura],'method'=>'DELETE']) !!}
-                                            <a href=""><button class="btn btn-danger">Eliminar</button></a>
-                                            {!! Form::Close() !!}
-                                        </td>
-										
+
 									</tr>
+                                        @include('academia.asignatura.edit')
+                                        @include('academia.asignatura.delete') 
+
 									@endforeach
+                                    
 								</table>
 								</div>
                             </div>

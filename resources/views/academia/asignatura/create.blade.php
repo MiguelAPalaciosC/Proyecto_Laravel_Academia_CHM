@@ -6,7 +6,7 @@ role="dialog" tabindex="-1" id="modal-create">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" 
 					aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true">x</span>
                 </button>
 				 <h5 class="modal-title">REGISTRAR CATEGORÍA</h5>
 			</div>

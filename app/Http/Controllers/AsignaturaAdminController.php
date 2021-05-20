@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace sisVentas\Http\Controllers;
 
-use App\Http\Requests\AsignaturaFormRequest;
-use App\Models\Asignatura;
+use sisVentas\Http\Requests\AsignaturaFormRequest;
+use sisVentas\Models\Asignatura;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
@@ -18,12 +18,12 @@ class AsignaturaAdminController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $asignatura=DB::table('asignatura as a')
-            ->join('users as u','a.id_usuario','=','u.id')
-            ->select('a.id_asignatura','a.codigo','a.nombre','u.name as id_usuario')
-            ->orderBy('id_asignatura','asc')
-            ->paginate(10);
-            // $asignatura=DB::select('SELECT a.id_asignatura,a.codigo,a.nombre,u.name as id_usuario FROM asignatura as a JOIN users as u ON (a.id_usuario=u.id)');
+            // $asignatura=DB::table('asignatura as a')
+            // ->join('users as us','a.id_usuario','=','us.id')
+            // ->select('a.id_asignatura','a.codigo','a.nombre','us.name as id_usuario')
+            // ->orderBy('id_asignatura','asc')
+            // ->paginate(10);
+            $asignatura=DB::select('SELECT a.id_asignatura,a.codigo,a.nombre,u.name as id_usuario FROM asignatura as a JOIN users as u ON (a.id_usuario=u.id)');
 
             $users=DB::table('users')->get();
 

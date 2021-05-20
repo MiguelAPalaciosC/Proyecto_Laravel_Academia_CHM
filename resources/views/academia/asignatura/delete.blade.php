@@ -1,14 +1,17 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
 role="dialog" tabindex="-1" id="modal-delete-{{ $as->id_asignatura }}">
-	{{!! Form::Open(['route'=>['asignatura.destroy',$as->id_asignatura],'method'=>'DELETE']) !!}}
+
+{{Form::Open(array('action'=>array('AsignaturaAdminController@destroy',$as->id_asignatura),'method'=>'delete'))}}
+
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">ELIMINAR CATEGORÍA</h5>
 				<button type="button" class="close" data-dismiss="modal" 
-				aria-label="Close">
-                     <span aria-hidden="true">×</span>
+					aria-label="Close">
+                     <span aria-hidden="true">x</span>
                 </button>
+
+				<h5 class="modal-title">ELIMINAR CATEGORÍA</h5>
                 
 			</div>
 			<div class="modal-body">
@@ -20,6 +23,7 @@ role="dialog" tabindex="-1" id="modal-delete-{{ $as->id_asignatura }}">
 			</div>
 		</div>
 	</div>
+
 	{{!! Form::Close() !!}}
 
 </div>
