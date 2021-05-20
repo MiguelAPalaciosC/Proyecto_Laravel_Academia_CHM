@@ -38,8 +38,8 @@ class NotaController extends Controller
                 ->join('asignatura as asi','ta.id_asignatura','=','asi.id_asignatura')
                 ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
                 ->join('users as u','asiU.id_usuario','=','u.id')
-                ->select('asi.codigo as codigo','asi.nombre as id_asignatura')
-                ->groupBy('asi.codigo','asi.nombre')
+                ->select('asi.codigo as codigo','asi.id_asignatura as id_asignatura','asi.nombre as nombre_asignatura')
+                ->groupBy('asi.codigo','asi.id_asignatura','asi.nombre')
                 ->where('u.id','=',$idusuario)
                 ->paginate(10);
 
