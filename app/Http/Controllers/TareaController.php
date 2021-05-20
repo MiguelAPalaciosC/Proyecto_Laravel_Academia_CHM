@@ -28,7 +28,7 @@ class TareaController extends Controller
                 ->join('asignatura as asi','ta.id_asignatura','=','asi.id_asignatura')
                 ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
                 ->join('users as u','asiU.id_usuario','=','u.id')
-                ->select('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.nombre as id_asignatura','ta.estado')
+                ->select('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.codigo as codigo','asi.nombre as id_asignatura','ta.estado')
                 ->where('u.id','=',$idusuario)
                 ->orderBy('id_tarea','asc')
                 ->paginate(10);

@@ -26,6 +26,7 @@
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <link href="{{ asset('css/estudiantes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profesores.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tarjetas.css') }}" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Work+Sans:300,400,500,700%7CZilla+Slab:300,400,500,700,700i%7CGloria+Hallelujah"> -->
     <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"> -->
 

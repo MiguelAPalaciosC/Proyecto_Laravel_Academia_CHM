@@ -43,7 +43,7 @@
                         <div class="form-group col-sm-8">
                             <select name="id_asignatura" class="form-control">
                                 @foreach ($asignatura as $as)
-                                    <option value="{{ $as->id_asignatura }}">{{ $as->nombre }}</option>
+                                    <option value="{{ $as->id_asignatura }}">{{$as->codigo}}-{{ $as->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>

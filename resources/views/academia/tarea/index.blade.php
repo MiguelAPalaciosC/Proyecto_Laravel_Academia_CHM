@@ -22,12 +22,13 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="table-responsive">
-                                    
                                         @foreach ($tarea as $ta)
-                                        <div class="col-sm-12 col-lg-4 mb-3">
+                                        <div class="col-md-6">
                                             <div class="card">
-                                                <div class="card-body available">
+                                                <div class="card-body available" id="tarjetas">
                                                     <br>
+                                                    <h4 class="card-title">{{ $ta->id_asignatura }}</h5>
+                                                        <h4 class="card-title">{{ $ta->codigo }}</h5>
                                                     <h4 class="card-title">{{ $ta->nombre }}</h5>
                                                     <h6 class="card-subtitle mb-2 text-muted">Estado: {{ $ta->estado }}</h6>
                                                     <p class="card-text">{{ $ta->descripcion }}</p>

@@ -38,7 +38,7 @@ role="dialog" tabindex="-1" id="modal-create">
                         <div class="form-group col-sm-8">
                             <select name="id_asignatura" class="form-control">
                                 @foreach($asignatura as $a)
-                                <option value="{{$a->id_asignatura}}">{{$a->nombre}}</option>
+                                <option value="{{$a->id_asignatura}}">{{$a->codigo}}-{{$a->nombre}}</option>
                                 @endforeach
                             </select>
                         </div>
