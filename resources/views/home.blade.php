@@ -11,6 +11,12 @@
                     You are logged in!
                 </div>
             </div>
+            <br>
+            @if (session('info'))
+                            <div class="alert alert-success">
+                                {{ session('info') }}
+                            </div>
+                        @endif
         </div>
     </div>
 </div>
