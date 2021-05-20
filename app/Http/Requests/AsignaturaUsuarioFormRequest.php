@@ -5,7 +5,7 @@ namespace sisVentas\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use phpDocumentor\Reflection\PseudoTypes\True_;
 
-class AsignaturaFormRequest extends FormRequest
+class AsignaturaUsuarioFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

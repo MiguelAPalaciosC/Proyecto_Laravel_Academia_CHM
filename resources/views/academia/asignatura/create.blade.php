@@ -6,7 +6,7 @@ role="dialog" tabindex="-1" id="modal-create">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" 
 					aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true">x</span>
                 </button>
 				 <h5 class="modal-title">REGISTRAR CATEGORÍA</h5>
 			</div>
@@ -32,19 +32,6 @@ role="dialog" tabindex="-1" id="modal-create">
                         </div>
                         <div class="form-group col-sm-8">
                             <input type="text" class="form-control" name="nombre" >
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-sm-4">
-                            <div>Usuario:</div>
-                        </div>
-                        <div class="form-group col-sm-8">
-                            <select name="id_usuario" class="form-control">
-                                @foreach($users as $us)
-                                <option value="{{$us->id}}">{{$us->name}}</option>
-                                @endforeach
-                            </select>
                         </div>
                     </div>
 

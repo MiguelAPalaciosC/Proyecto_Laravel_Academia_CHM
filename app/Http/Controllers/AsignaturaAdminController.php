@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace sisVentas\Http\Controllers;
 
-use App\Http\Requests\AsignaturaFormRequest;
-use App\Models\Asignatura;
+use sisVentas\Http\Requests\AsignaturaFormRequest;
+use sisVentas\Models\Asignatura;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
@@ -18,12 +18,7 @@ class AsignaturaAdminController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $asignatura=DB::table('asignatura as a')
-            ->join('users as u','a.id_usuario','=','u.id')
-            ->select('a.id_asignatura','a.codigo','a.nombre','u.name as id_usuario')
-            ->orderBy('id_asignatura','asc')
-            ->paginate(10);
-            // $asignatura=DB::select('SELECT a.id_asignatura,a.codigo,a.nombre,u.name as id_usuario FROM asignatura as a JOIN users as u ON (a.id_usuario=u.id)');
+            $asignatura=DB::table('asignatura')->get();
 
             $users=DB::table('users')->get();
 
@@ -33,21 +28,18 @@ class AsignaturaAdminController extends Controller
 
     //Método que almacena los datos provenientes del formulario de una vista en una tabla de la bd
     public function store (AsignaturaFormRequest $request){
-        $asignatura=new Asignatura;
-        $asignatura->codigo=$request->get('codigo');
-        $asignatura->nombre=$request->get('nombre');
-        $asignatura->id_usuario=$request->get('id_usuario');
-        $asignatura->save();
+
+        $asignatura=Asignatura::create($request->all());
+
         return Redirect::to('academia/asignatura');
     }
 
     //Método que actualiza los datos provenientes del formulario de una vista en una tabla de la bd
     public function update(asignaturaFormRequest $request,$id){
-        $asignatura=Asignatura::findOrFail($id);
-        $asignatura->codigo=$request->get('codigo');
-        $asignatura->nombre=$request->get('nombre');
-        $asignatura->id_usuario=$request->get('id_usuario');
-        $asignatura->update();
+
+        $asignatura=Asignatura::find($id);
+        $asignatura->fill($request->all())->update();
+
         return Redirect::to('academia/asignatura');
     }
 

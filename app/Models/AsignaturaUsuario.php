@@ -4,17 +4,17 @@ namespace sisVentas\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Asignatura extends Model
+class AsignaturaUsuario extends Model
 {
-    protected $table='asignatura';
+    protected $table='asignaturaUsuario';
 
-    protected $primaryKey='id_asignatura';
+    
 
     public $timestamps=false;
 
 
     protected $fillable =[
-        'codigo','nombre'
+        'id_asignatura','id_usuario'
     ];
 
     protected $guarded =[
