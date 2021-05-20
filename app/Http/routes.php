@@ -21,8 +21,14 @@ Route::get('/', function () {
 //Route::get('/', 'EstudianteController@index');
 
 //Rutas para indicar el controlador
+
+Route::resource('almacen/estudiante','EstudianteController');
+Route::resource('almacen/empresa','EmpresaController');
+Route::resource('usuario','UsuarioController');
+
 // Route::resource('almacen/estudiante','EstudianteController');
 // Route::resource('almacen/empresa','EmpresaController');
+
 
 Route::resource('academia/asignatura','AsignaturaAdminController');
 
