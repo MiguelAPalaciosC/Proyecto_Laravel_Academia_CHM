@@ -26,7 +26,13 @@
                                             @if($ta->estado == 0)
                                             <div class="col-md-6">
                                                 <div class="card">
+                                                    @if(new DateTime("now") < new DateTime($ta->fecha_entrega))
                                                     <div class="card-body available" id="tarjetas">
+                                                    @elseif(new DateTime("now") > new DateTime($ta->fecha_entrega))
+                                                    <div class="card-body cerca" id="tarjetas">
+                                                    @else
+                                                    <div class="card-body not-available" id="tarjetas">
+                                                    @endif
                                                         <br>
                                                         <h4 class="card-title">{{ $ta->nombre }}</h5>
                                                         <h6 class="card-subtitle mb-2 text-muted">Estado: {{ $ta->estado }}</h6>
