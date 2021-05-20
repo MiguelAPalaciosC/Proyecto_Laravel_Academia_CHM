@@ -1,5 +1,5 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1"
-    id="modal-edit-{{ $as->id_asignatura }}">
+    id="modal-edit-{{ $au->id_relacion }}">
 
     <div class="modal-dialog">
         <div class="modal-content">
@@ -7,33 +7,41 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">x</span>
                 </button>
-                <h5 class="modal-title">EDITAR ASIGNATURA</h5>
+                <h5 class="modal-title">EDITAR RELACION</h5>
 
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    {!!Form::model($as, ['method' => 'PATCH', 'route' => ['academia.asignatura.update', $as->id_asignatura]])!!}
+                    {!!Form::model($au, ['method' => 'PATCH', 'route' => ['academia.inscribir.update',$au->id_relacion ]])!!}
                     {{Form::token()}}
 
                     <div class="form-row">
                         <div class="form-group col-sm-4">
-                            <div>Codigo:</div>
+                            <div>Usuario:</div>
                         </div>
                         <div class="form-group col-sm-8">
-                            <input type="text" class="form-control" name="codigo" value="{{ $as->codigo }}">
+                            <select name="id_usuario" class="form-control">
+                                @foreach($users as $us)
+                                <option value="{{$us->id}}">{{$us->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 
+                    
                     <div class="form-row">
                         <div class="form-group col-sm-4">
-                            <div>Nombre:</div>
+                            <div>Asignatura:</div>
                         </div>
                         <div class="form-group col-sm-8">
-                            <input type="text" class="form-control" name="nombre" value="{{ $as->nombre }}">
+                            <select name="id_asignatura" class="form-control">
+                                @foreach($asignatura as $a)
+                                <option value="{{$a->id_asignatura}}">{{$a->nombre}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-
 
                     <div class="form-row" align="center">
                         <div class="form-group col-sm-12" align="center">

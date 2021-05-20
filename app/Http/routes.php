@@ -31,6 +31,7 @@ Route::resource('usuario','UsuarioController');
 
 
 Route::resource('academia/asignatura','AsignaturaAdminController');
+Route::resource('academia/inscribir','AsignaturaUsuarioController');
 
 Route::resource('estudiante','EstudianteController');
 Route::get('materia/{nombre}', 'EstudianteController@busquedaMaterias')->name('materia');

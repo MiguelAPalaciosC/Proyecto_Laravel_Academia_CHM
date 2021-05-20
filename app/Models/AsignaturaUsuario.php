@@ -8,7 +8,7 @@ class AsignaturaUsuario extends Model
 {
     protected $table='asignaturaUsuario';
 
-    
+    protected $primaryKey='id_relacion';
 
     public $timestamps=false;
 

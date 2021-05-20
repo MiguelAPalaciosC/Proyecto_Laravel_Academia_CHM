@@ -34,5 +34,25 @@ class RespuestaAdminController extends Controller
 
     //Método que almacena los datos provenientes del formulario de una vista en una tabla de la bd
     public function store (RespuestaFormRequest $request){
+
+        $respuesta=Respuesta::create($request->all());
+
+        return Redirect::to('academia/inscribir');
+    }
+
+    //Método que actualiza los datos provenientes del formulario de una vista en una tabla de la bd
+    public function update(asignaturaFormRequest $request,$id){
+
+        $respuesta=Respuesta::find($id);
+        $respuesta->fill($request->all())->update();
+
+        return Redirect::to('academia/inscribir');
+    }
+
+    //Método para eliminar registros de una tabla, redirecciona a la vista que este indicada en el método index
+    public function destroy($id){
+        $respuesta=Respuesta::findOrFail($id);
+        $respuesta->delete();
+        return Redirect::to('academia/inscribir');
     }
 }
