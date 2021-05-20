@@ -11,10 +11,10 @@
                             <div class="col-md-12">
                                 <h2 class="section-heading text-uppercase">TAREAS</h2>
                             </div>
-                            {{-- <div class="contenedor-modal col-md-2">
+                            <!-- {{-- <div class="contenedor-modal col-md-2">
                                 <a href="" data-target="#modal-create-tarea" data-toggle="modal" ><button
                                         class="btn btn-info"><font face="verdana" size=3>+</font></button></a>
-                            </div> --}}
+                            </div> --}} -->
                         </div>
                     </div>
                     <div class="panel-body">
@@ -23,22 +23,30 @@
                                 <div class="table-responsive">
                                     
                                         @foreach ($tarea as $ta)
-                                        <div class="col-md-6">
-                                            <div class="card">
-                                                <div class="card-body available" id="tarjetas">
-                                                    <br>
-                                                    <h4 class="card-title">{{ $ta->nombre }}</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Estado: {{ $ta->estado }}</h6>
-                                                    <p class="card-text">{{ $ta->descripcion }}</p>
-                                                    <p class="card-text">Fecha de entrega: {{ $ta->fecha_entrega }}</p>
-                                                    <a href="" data-target="#modal-edit-{{ $ta->id_tarea }}"
-                                                        data-toggle="modal"><button class="btn btn-info">
-                                                        Responder</button>
-                                                    </a>
-                                                    <br><br>
+                                            @if($ta->estado == 0)
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    @if(new DateTime("now") < new DateTime($ta->fecha_entrega))
+                                                    <div class="card-body available" id="tarjetas">
+                                                    @elseif(new DateTime("now") > new DateTime($ta->fecha_entrega))
+                                                    <div class="card-body cerca" id="tarjetas">
+                                                    @else
+                                                    <div class="card-body not-available" id="tarjetas">
+                                                    @endif
+                                                        <br>
+                                                        <h4 class="card-title">{{ $ta->nombre }}</h5>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Estado: {{ $ta->estado }}</h6>
+                                                        <p class="card-text">{{ $ta->descripcion }}</p>
+                                                        <p class="card-text">Fecha de entrega: {{ $ta->fecha_entrega }}</p>
+                                                        <a href="" data-target="#modal-edit-{{ $ta->id_tarea }}"
+                                                            data-toggle="modal"><button class="btn btn-info">
+                                                            Responder</button>
+                                                        </a>
+                                                        <br><br>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            @endif
                                             @include('academia.respuesta.edit')
                                         @endforeach
                                    
