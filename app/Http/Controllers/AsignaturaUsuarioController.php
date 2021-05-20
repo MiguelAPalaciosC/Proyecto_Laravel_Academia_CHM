@@ -6,6 +6,7 @@ use sisVentas\Http\Requests\AsignaturaUsuarioFormRequest;
 use sisVentas\Models\AsignaturaUsuario;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use sisVentas\Http\Requests\UsuarioFormRequest;
 use sisVentas\User;

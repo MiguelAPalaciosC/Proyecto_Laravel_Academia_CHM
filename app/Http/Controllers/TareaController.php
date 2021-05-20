@@ -23,9 +23,13 @@ class TareaController extends Controller
     {
         if ($request){
             if((Auth::user()->usertype_id_usertype)==2){
+                $idusuario = (Auth::user()->id);
                 $tarea=DB::table('tarea as ta')
                 ->join('asignatura as asi','ta.id_asignatura','=','asi.id_asignatura')
+                ->join('asignaturaUsuario as asiU','asi.id_asignatura','=','asiU.id_asignatura')
+                ->join('users as u','asiU.id_usuario','=','u.id')
                 ->select('ta.id_tarea','ta.nombre','ta.descripcion','ta.fecha_entrega','asi.nombre as id_asignatura','ta.estado')
+                ->where('u.id','=',$idusuario)
                 ->orderBy('id_tarea','asc')
                 ->paginate(10);
     
