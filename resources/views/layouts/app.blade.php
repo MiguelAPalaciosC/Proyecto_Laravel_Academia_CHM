@@ -81,9 +81,9 @@
                             <ul class="dropdown-menu" role="menu">
                                 @if((Auth::user()->usertype_id_usertype)==1)
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('UsuarioController@index') }}">Usuarios</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==2)
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Actividades</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==3)

@@ -9,7 +9,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use sisVentas\Http\Requests\UsuarioFormRequest;
 use sisVentas\User;
-use sisVentas\UserType;
+use App\Models\UserType;
 
 class UsuarioController extends Controller
 {
