@@ -21,7 +21,7 @@
                             <div>Tarea:</div>
                         </div>
                         <div class="form-group col-sm-8">
-                            <input type="text" class="form-control" name="id_tarea" value="{{$res->id_tarea}}" disabled>
+                            <input type="text" class="form-control" name="nombre_tarea" value="{{$res->nombre_tarea}}" disabled>
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                             <div>Usuario:</div>
                         </div>
                         <div class="form-group col-sm-8">
-                            <input type="text" class="form-control" name="id_usuario" value="{{ $res->id_usuario }}" disabled>
+                            <input type="text" class="form-control" name="nombre_usuario" value="{{ $res->nombre_usuario }}" disabled>
                         </div>
                     </div>
 

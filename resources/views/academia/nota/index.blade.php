@@ -21,21 +21,21 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="table-responsive">
+                                    @foreach ($tarea as $tr)
 
                                     <!-- {{$cont=0}} -->
                                     <!-- {{$uno=1}} -->
-                                    @foreach ($tarea as $tr)
 
                                     <div class="col-sm-12 col-lg-4 mb-3">
                                         <div class="card">
                                             <div class="card-body available" id="tarjetas">
                                                 <!-- {{$var=0}} -->
                                                 <br>
-                                                <h4 class="card-title">{{ $tr->id_asignatura }}</h5>
+                                                <h4 class="card-title">{{ $tr->nombre_asignatura }}</h5>
                                                     <h4 class="card-title">{{ $tr->codigo }}</h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">Notas: </h6>
                                                 @foreach ($nota as $n)
-                                                    @if($tr->id_asignatura==$n->id_asignatura)
+                                                    @if($tr->id_asignatura == $n->id_asignatura)
                                                         @if($n->id_usuario == (Auth::user()->id))
                                                         <p class="card-text">{{ $n->nota }}</p>
                                                         <!-- {{$cont=$cont+$uno}} -->
