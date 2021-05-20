@@ -23,9 +23,9 @@
                                 <div class="table-responsive">
                                     
                                         @foreach ($tarea as $ta)
-                                        <div class="col-sm-12 col-lg-4 mb-3">
+                                        <div class="col-md-6">
                                             <div class="card">
-                                                <div class="card-body available">
+                                                <div class="card-body available" id="tarjetas">
                                                     <br>
                                                     <h4 class="card-title">{{ $ta->nombre }}</h5>
                                                     <h6 class="card-subtitle mb-2 text-muted">Estado: {{ $ta->estado }}</h6>

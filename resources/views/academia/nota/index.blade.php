@@ -26,12 +26,13 @@
                                     <!-- {{$uno=1}} -->
                                     @foreach ($asignatura as $a)
                                     
-                                    <div class="col-sm-12 col-lg-4 mb-3">
+                                    <div class="col-md-6">
                                         <div class="card">
-                                            <div class="card-body available">
+                                            <div class="card-body available" id="tarjetas">
                                                 <!-- {{$var=0}} -->
                                                 <br>
                                                 <h4 class="card-title">{{ $a->nombre }}</h5>
+                                                    <h4 class="card-title">{{ $a->codigo }}</h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">Notas: </h6>
                                                 @foreach ($nota as $n)
                                                 @if($a->id_asignatura==$n->id_asignatura)
