@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
 
-class EstudianteController extends Controller
+class ProfesorController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +19,7 @@ class EstudianteController extends Controller
     public function index(Request $request)
     {        
         $materias = array("Calculo", "Fisica", "Programacion", "Estadistica");
-        return view('estudiantes.index', ["materias" => $materias, "clear" => true]);
+        return view('profesores.index', ["materias" => $materias, "clear" => true]);
     }
 
     public function busquedaMaterias($nombre) {
@@ -48,6 +48,6 @@ class EstudianteController extends Controller
             "fecha" => "10/10/21"
         ]];
         $materias = array("Calculo", "Fisica", "Programacion", "Estadistica");
-        return view('estudiantes.materias', ["nombre" => $nombre, "tareas" => $tareas, "materias" => $materias]);
+        return view('profesores.materias', ["nombre" => $nombre, "tareas" => $tareas, "materias" => $materias]);
     }
 }

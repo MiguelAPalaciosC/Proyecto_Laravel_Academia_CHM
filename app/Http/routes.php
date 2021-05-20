@@ -25,6 +25,12 @@ Route::get('/', function () {
 // Route::resource('almacen/empresa','EmpresaController');
 
 Route::resource('academia/asignatura','AsignaturaAdminController');
+
+Route::resource('estudiante','EstudianteController');
+Route::get('materia/{nombre}', 'EstudianteController@busquedaMaterias')->name('materia');
+Route::resource('profesor','ProfesorController');
+Route::get('profesorMateria/{nombre}', 'ProfesorController@busquedaMaterias')->name('materia');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

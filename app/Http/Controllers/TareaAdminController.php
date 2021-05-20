@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace sisVentas\Http\Controllers;
 
-use App\Http\Requests\TareaFormRequest;
-use App\Tarea;
-use App\Models\Tarea;
+use sisVentas\Http\Requests\TareaFormRequest;
+use sisVentas\Tarea;
+use sisVentas\Models\Tarea;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace sisVentas\Http\Controllers;
 
-use App\Http\Requests\RespuestaFormRequest;
-use App\Respuesta;
-use App\Models\Respuesta;
+use sisVentas\Http\Requests\RespuestaFormRequest;
+use sisVentas\Respuesta;
+use sisVentas\Models\Respuesta;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
