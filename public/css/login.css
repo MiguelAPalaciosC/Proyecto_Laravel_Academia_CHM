@@ -45,10 +45,43 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-
-.img {
-    display: block;
-    border-radius: 50px;
+#botonlogin{
+    font-size: 120%;
     width: 100%;
-    padding: 2em;
 }
+#prueba{
+    background:#121A32 ;
+    opacity: 0.9;
+}
+#panelprincipal {
+    margin: 0%;
+    padding: 0%;
+    background: url(../img/5.jpg) no-repeat center top;
+    text-align:center;
+    background-attachment: relative;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#textlogin{
+    color: white;
+  font-size: 140%;
+}  
+#menu{
+    font-size: 110%;
+}
+.navbar-default .navbar-nav>.open>a.dropdown-toggle{
+    background-color: #f4511e !important;
+  }

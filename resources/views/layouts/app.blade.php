@@ -13,6 +13,8 @@
         integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <!-- Styles -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"
@@ -43,7 +45,7 @@
 </head>
 
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" id="navbar">
         <div class="container">
             <div class="navbar-header">
 
@@ -57,7 +59,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a id="textonav" class="navbar-brand" href="{{ url('/') }}"><i id="iconos" class="fas fa-graduation-cap"></i>
                     ACADEMIA CHM
                 </a>
             </div>
@@ -73,40 +75,40 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
 
-                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a id="textonav" href="{{ url('/login') }}"><i id="iconos" class="fas fa-sign-in-alt"></i>Login</a></li>
                         {{-- <li><a href="{{ url('/register') }}">Register</a></li> --}}
                     @else
-                    <li><a id="menu" href="{{ url('/home') }}">Inicio</a></li>
+                    <li><a id="textonav"  href="{{ url('/home') }}"><i id="iconos" class="fas fa-home"></i>Inicio</a></li>
                     <li class="dropdown">
                         <li class="dropdown">
-                            <a id="name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false"> Modulos <span
+                            <a id="textonav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i id="iconos" class="fas fa-bars"></i> Modulos <span
                                     class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 @if((Auth::user()->usertype_id_usertype)==1)
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('UsuarioController@index') }}">Usuarios</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('AsignaturaAdminController@index') }}">Asignaturas</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('AsignaturaUsuarioController@index') }}">Inscribir materia</a></li>
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('UsuarioController@index') }}"><i id="iconos" class="fas fa-users"></i>Usuarios</a></li>
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('AsignaturaAdminController@index') }}"><i id="iconos" class="fas fa-book"></i>Asignaturas</a></li>
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('AsignaturaUsuarioController@index') }}"><i id="iconos" class="fas fa-edit"></i>Inscribir materia</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==2)
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('TareaController@index') }}">Actividades</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('RespuestaDController@index') }}">Respuestas</a></li>
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('TareaController@index') }}">Actividades</a></li>
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('RespuestaDController@index') }}">Respuestas</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==3)
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('RespuestaEController@index') }}">Actividades</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('NotaController@index') }}">Notas</a></li>                               
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('RespuestaEController@index') }}">Actividades</a></li>
+                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('NotaController@index') }}">Notas</a></li>                               
                                 @endif
                             </ul>
                         </li>
                         <li class="dropdown">
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a id="textonav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i id="iconos" class="fas fa-user-tie"></i>
 
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                                <li><a id="menu" href="{{ url('/logout') }}"><i id="iconos" class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
                                 </li>
                             </ul>
                         </li>

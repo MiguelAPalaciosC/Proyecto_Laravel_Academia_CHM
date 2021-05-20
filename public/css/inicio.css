@@ -25,6 +25,8 @@ body {
 }
 
 #headerwrap {
+  margin: 0%;
+  padding: 0%;
 	background: url(../img/fondo.png) no-repeat center top;
 	text-align:center;
 	background-attachment: relative;
@@ -99,4 +101,16 @@ body {
     color:rgb(14, 14, 14);
   }
   
+}
+#navbar{
+  background:#121A32  ;
+  margin: 0%;
+  padding: 0%;
+}
+#textonav{
+  color: white;
+  font-size: 120%;
+}
+#iconos{
+  margin-right:3px;
 }
