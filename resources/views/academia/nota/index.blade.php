@@ -43,8 +43,11 @@
                                                         @endif
                                                     @endif
                                                 @endforeach
-                                                
-                                                <p class="card-text">Definitiva: {{ ($var/2) }}</p>
+                                                @if($cont==0)
+                                                    <p class="card-text"> Definitiva: No hay notas de esta materia{{ ($var/2) }}</p>
+                                                @else
+                                                    <p class="card-text"> Definitiva: {{ ($var/$cont) }}</p>
+                                                @endif
                                                 <br><br>
                                             </div>
                                         </div>
