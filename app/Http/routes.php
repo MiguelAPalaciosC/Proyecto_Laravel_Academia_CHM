@@ -25,4 +25,6 @@ Route::get('/', function () {
 // Route::resource('almacen/empresa','EmpresaController');
 
 Route::resource('academia/asignatura','AsignaturaAdminController');
+Route::auth();
 
+Route::get('/home', 'HomeController@index');
