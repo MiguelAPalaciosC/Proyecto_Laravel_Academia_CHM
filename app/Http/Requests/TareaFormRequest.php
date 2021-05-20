@@ -2,10 +2,10 @@
 
 namespace sisVentas\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use phpDocumentor\Reflection\PseudoTypes\True_;
+use sisVentas\Http\Requests\Request;
 
-class TareaFormRequest extends FormRequest
+
+class TareaFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

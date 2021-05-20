@@ -85,7 +85,7 @@
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('AsignaturaUsuarioController@index') }}">Inscribir materia</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==2)
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Actividades</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('TareaController@index') }}">Actividades</a></li>
                                 @endif
                                 @if((Auth::user()->usertype_id_usertype)==3)
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>

@@ -24,7 +24,12 @@ Route::get('/', function () {
 
 Route::resource('almacen/estudiante','EstudianteController');
 Route::resource('almacen/empresa','EmpresaController');
+
+//RUTAS USADAS POR CAMILO TRIANA
 Route::resource('usuario','UsuarioController');
+Route::resource('academia/tarea','TareaController');
+Route::auth();
+Route::get('/home', 'HomeController@index');
 
 // Route::resource('almacen/estudiante','EstudianteController');
 // Route::resource('almacen/empresa','EmpresaController');
@@ -38,6 +43,4 @@ Route::get('materia/{nombre}', 'EstudianteController@busquedaMaterias')->name('m
 Route::resource('profesor','ProfesorController');
 Route::get('profesorMateria/{nombre}', 'ProfesorController@busquedaMaterias')->name('materia');
 
-Route::auth();
 
-Route::get('/home', 'HomeController@index');

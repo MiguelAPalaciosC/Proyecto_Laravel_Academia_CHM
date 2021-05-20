@@ -6,6 +6,7 @@ use sisVentas\Http\Requests\AsignaturaFormRequest;
 use sisVentas\Models\Asignatura;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class AsignaturaAdminController extends Controller
@@ -18,13 +19,18 @@ class AsignaturaAdminController extends Controller
     public function index(Request $request)
     {
         if ($request) {
+            if((Auth::user()->usertype_id_usertype)==1){
             $asignatura=DB::table('asignatura')->get();
 
             $users=DB::table('users')->get();
 
             return view('academia.asignatura.index',["asignatura"=>$asignatura,"users"=>$users]);
         }
+        else{
+            return Redirect::to('home')->with('info','El usuario no cuenta con los permisos necesarios para acceder al modulo');
+        }
     }
+}
 
     //Método que almacena los datos provenientes del formulario de una vista en una tabla de la bd
     public function store (AsignaturaFormRequest $request){

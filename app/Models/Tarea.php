@@ -14,7 +14,7 @@ class Tarea extends Model
 
 
     protected $fillable =[
-        'nombre','descripcion','fecha_entrega','id_asignatura'
+        'nombre','descripcion','fecha_entrega','id_asignatura','estado',
     ];
 
     protected $guarded =[
