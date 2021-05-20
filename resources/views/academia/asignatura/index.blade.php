@@ -33,7 +33,6 @@
                                     
 										<td>{{ $as->codigo}}</td>
 										<td>{{ $as->nombre}}</td>
-										<td>{{ $as->id_usuario}}</td>
                                         <td>	
                                             <a href="" data-target="#modal-edit-{{ $as->id_asignatura }}"  data-toggle="modal"><button class="btn btn-info">Editar</button></a>
                                             <a href="" data-target="#modal-delete-{{ $as->id_asignatura }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>

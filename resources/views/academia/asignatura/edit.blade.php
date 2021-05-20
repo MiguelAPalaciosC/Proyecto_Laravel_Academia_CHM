@@ -30,20 +30,7 @@
                             <div>Nombre:</div>
                         </div>
                         <div class="form-group col-sm-8">
-                            <input type="text" class="form-control" name="Nombre" value="{{ $as->nombre }}">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-sm-4">
-                            <div>Usuario:</div>
-                        </div>
-                        <div class="form-group col-sm-8">
-                            <select name="id_usuario" class="form-control">
-                                @foreach($users as $us)
-                                <option value="{{$us->id}}">{{$us->name}}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" class="form-control" name="nombre" value="{{ $as->nombre }}">
                         </div>
                     </div>
 

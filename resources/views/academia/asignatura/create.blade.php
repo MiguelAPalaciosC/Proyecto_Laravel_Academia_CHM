@@ -35,19 +35,6 @@ role="dialog" tabindex="-1" id="modal-create">
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-sm-4">
-                            <div>Usuario:</div>
-                        </div>
-                        <div class="form-group col-sm-8">
-                            <select name="id_usuario" class="form-control">
-                                @foreach($users as $us)
-                                <option value="{{$us->id}}">{{$us->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
 						<div class="form-row" align="center">
 							<div class="form-group col-sm-12" align="center">
 								<button class="btn btn-info" type="submit">Guardar</button>
