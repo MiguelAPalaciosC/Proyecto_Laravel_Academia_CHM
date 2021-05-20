@@ -20,8 +20,17 @@ class NotaController extends Controller
     {
         if ($request) {
             if((Auth::user()->usertype_id_usertype)==3){
-                $nota=DB::table('respuesta')->get();
-                $nota=DB::select('SELECT r.id_respuesta,t.id_tarea,u.id as id_usuario,a.id_asignatura,a.nombre,r.nota  FROM respuesta as r JOIN tarea as t ON (r.id_tarea=t.id_tarea) JOIN users as u ON (r.id_usuario=u.id) JOIN asignatura as a ON (t.id_asignatura=a.id_asignatura)');
+
+                $idusuario = (Auth::user()->id);
+
+                $nota=DB::table('respuesta as r')
+                ->join('tarea as t','r.id_tarea','=','t.id_tarea')
+                ->join('users as u','r.id_usuario','=','u.id')
+                ->join('asignatura as a','t.id_asignatura','=','a.id_asignatura')
+                ->join('asignaturaUsuario as asiU','a.id_asignatura','=','asiU.id_asignatura')
+                ->select('r.id_respuesta','t.id_tarea as id_tarea','u.id as id_usuario','a.id_asignatura as id_asignatura','a.nombre as nombre','r.nota')
+                ->orderBy('id_respuesta','asc')
+                ->paginate(10);
 
                 $asignatura=DB::table('asignatura')->get();
 
