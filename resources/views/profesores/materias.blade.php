@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('estudiantes.modal')
+                    @include('profesores.modal')
                 @endforeach
             </div>
         </div>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('estudiantes.modal')
+                    @include('profesores.modal')
                 @endforeach
             </div>
         </div>

@@ -35,6 +35,9 @@
         </div>
     </div>
 </div>
+<!-- hasta aqui va el navbar lateral -->
+
+<!-- mensaje de bienvenida -->
     @if (isset($clear))
         <div class="bienvenida">
             <i class="icon ion-happy mr-2 lead" width="500px"></i>
