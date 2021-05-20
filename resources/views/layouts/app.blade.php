@@ -13,7 +13,8 @@
         integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Styles -->
 
@@ -21,8 +22,9 @@
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Styles -->
     <link href="{{ asset('css/inicio.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
@@ -59,7 +61,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a id="textonav" class="navbar-brand" href="{{ url('/') }}"><i id="iconos" class="fas fa-graduation-cap"></i>
+                <a id="textonav" class="navbar-brand" href="{{ url('/') }}"><i id="iconos"
+                        class="fas fa-graduation-cap"></i>
                     ACADEMIA CHM
                 </a>
             </div>
@@ -75,40 +78,54 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
 
-                        <li><a id="textonav" href="{{ url('/login') }}"><i id="iconos" class="fas fa-sign-in-alt"></i>Login</a></li>
+                        <li><a id="textonav" href="{{ url('/login') }}"><i id="iconos"
+                                    class="fas fa-sign-in-alt"></i>Iniciar Sesion</a></li>
                         {{-- <li><a href="{{ url('/register') }}">Register</a></li> --}}
                     @else
-                    <li><a id="textonav"  href="{{ url('/home') }}"><i id="iconos" class="fas fa-home"></i>Inicio</a></li>
-                    <li class="dropdown">
+                        <li><a id="textonav" href="{{ url('/home') }}"><i id="iconos"
+                                    class="fas fa-home"></i>Inicio</a></li>
+                        <li class="dropdown">
                         <li class="dropdown">
                             <a id="textonav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-expanded="false"><i id="iconos" class="fas fa-bars"></i> Modulos <span
                                     class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                @if((Auth::user()->usertype_id_usertype)==1)
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('UsuarioController@index') }}"><i id="iconos" class="fas fa-users"></i>Usuarios</a></li>
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('AsignaturaAdminController@index') }}"><i id="iconos" class="fas fa-book"></i>Asignaturas</a></li>
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('AsignaturaUsuarioController@index') }}"><i id="iconos" class="fas fa-edit"></i>Inscribir materia</a></li>
+                                @if (Auth::user()->usertype_id_usertype == 1)
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('UsuarioController@index') }}"><i id="iconos"
+                                                class="fas fa-users"></i>Usuarios</a></li>
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('AsignaturaAdminController@index') }}"><i id="iconos"
+                                                class="fas fa-book"></i>Asignaturas</a></li>
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('AsignaturaUsuarioController@index') }}"><i id="iconos"
+                                                class="fas fa-edit"></i>Inscribir materia</a></li>
                                 @endif
-                                @if((Auth::user()->usertype_id_usertype)==2)
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('TareaController@index') }}">Actividades</a></li>
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('RespuestaDController@index') }}">Respuestas</a></li>
+                                @if (Auth::user()->usertype_id_usertype == 2)
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('TareaController@index') }}">Actividades</a></li>
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('RespuestaDController@index') }}">Respuestas</a></li>
                                 @endif
-                                @if((Auth::user()->usertype_id_usertype)==3)
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('RespuestaEController@index') }}">Actividades</a></li>
-                                <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger" href="{{ action('NotaController@index') }}">Notas</a></li>                               
+                                @if (Auth::user()->usertype_id_usertype == 3)
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('RespuestaEController@index') }}">Actividades</a></li>
+                                    <li class="nav-item"><a id="menu" class="nav-link js-scroll-trigger"
+                                            href="{{ action('NotaController@index') }}">Notas</a></li>
                                 @endif
                             </ul>
                         </li>
                         <li class="dropdown">
 
-                            <a id="textonav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i id="iconos" class="fas fa-user-tie"></i>
+                            <a id="textonav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i id="iconos" class="fas fa-user-tie"></i>
 
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a id="menu" href="{{ url('/logout') }}"><i id="iconos" class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                                <li><a id="menu" href="{{ url('/logout') }}"><i id="iconos"
+                                            class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
                                 </li>
                             </ul>
                         </li>
@@ -130,6 +147,40 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     {{-- <script src="{{ elixir('js/core.min.js') }}"></script> --}}
     {{-- <script src="{{ elixir('js/script.js') }}"></script> --}}
+    <footer id="footer">
+        <div class="container">
+            <div class="row" id="pie">
+                <div class="col-md-6" id="footiz">
+                    <p id="contactanos">
+                    <h1 id="titlepie1">Contacto</h1>
+                    Academia CHM
+                    <br>
+                    Celular: 3102462947
+                    <br>
+                    academiachm@chm.edu.co - academiachm@gmail.com
+                    </p>
+                </div>
+                <div class="col-md-6" id="footde">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 id="titlepie2">Redes Sociales</h3>
+                        </div>
+                    </div>
+                    <div class="row" id="prueba2">
+                        <div id="col-md-12">
+                            <a title="Facebook" href="#"><i id="ic" class="fab fa-facebook-square"></i></a>
+                        </div>
+                        <div id="col-md-12"><a title="Instagram" href="#"><i id="ic" class="fab fa-instagram"></i></a>
+                        </div>
+                        <div id="col-md-12"><a title="Telegram" href="#"><i id="ic"
+                                    class="fab fa-telegram-plane"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+    </footer>
 </body>
 
 </html>

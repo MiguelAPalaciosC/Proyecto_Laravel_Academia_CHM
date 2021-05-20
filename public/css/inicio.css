@@ -114,3 +114,19 @@ body {
 #iconos{
   margin-right:3px;
 }
+#footer{
+  background:#121A32  ;
+}
+#footiz{
+  text-align: center;
+}
+#footde{
+  text-align: center;
+}
+#ic{
+ color:gray;
+ font-size: 160%;
+}
+#prueba2{
+  text-align: center;
+}
