@@ -31,7 +31,6 @@ class RespuestaDController extends Controller
                 ->join('users as u','r.id_usuario','=','u.id')
                 ->select('r.id_respuesta','r.nombre','r.descripcion','r.nota','t.nombre as id_tarea','u.name as id_usuario')
                 ->orderBy('id_respuesta','asc')
-                ->where('u.id','=',$idusuario)
                 ->paginate(10);
 
                 return view('academia.respuestas.index',["respuesta"=>$respuesta]);

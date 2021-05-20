@@ -37,7 +37,7 @@
                                                         Calificar</button>
                                                     </a>
                                                     <a href="" data-target="#modal-delete-{{ $res->id_respuesta }}"
-                                                        data-toggle="modal"><button class="btn btn-info">
+                                                        data-toggle="modal"><button class="btn btn-danger">
                                                         Eliminar</button>
                                                     </a>
                                                     <br><br>
@@ -45,7 +45,7 @@
                                             </div>
                                         </div>
                                             @include('academia.respuestas.edit')
-                                            @include('academia.respuestas.edit')
+                                            @include('academia.respuestas.delete')
                                         @endforeach
                                    
                                 </div>
