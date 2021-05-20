@@ -14,9 +14,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Styles -->
+    <link href="{{ asset('css/inicio.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+
 
     <style>
         body {
@@ -60,6 +68,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
+
                         {{-- <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li> --}}
                     @else
@@ -85,6 +94,25 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-expanded="false">
+
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                    @else
+                    
+                        <li class="dropdown">
+                            <a id="name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class=""></i> Modulos <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Actividades</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('EstudianteController@index') }}">Estudiante</a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('ProfesorController@index') }}">Profesor</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
