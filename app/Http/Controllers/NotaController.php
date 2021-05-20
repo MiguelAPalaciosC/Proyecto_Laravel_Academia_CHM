@@ -25,10 +25,11 @@ class NotaController extends Controller
 
                 $nota=DB::table('respuesta as r')
                 ->join('tarea as t','r.id_tarea','=','t.id_tarea')
-                ->join('users as u','r.id_usuario','=','u.id')
                 ->join('asignatura as a','t.id_asignatura','=','a.id_asignatura')
                 ->join('asignaturaUsuario as asiU','a.id_asignatura','=','asiU.id_asignatura')
+                ->join('users as u','asiU.id_usuario','=','u.id')
                 ->select('r.id_respuesta','t.id_tarea as id_tarea','u.id as id_usuario','a.id_asignatura as id_asignatura','a.nombre as nombre','r.nota')
+                ->where('u.id','=','16')
                 ->orderBy('id_respuesta','asc')
                 ->paginate(10);
 
