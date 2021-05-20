@@ -39,18 +39,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <li class="dropdown">
-                            <a id="name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false"><i class="fas fa-align-justify"></i> Modulos <span
-                                    class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Actividades</a></li>
-                    
-                       
-                            </ul>
-                        </li>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
                        
                     </ul>
                 </div>
