@@ -53,7 +53,7 @@
                         </li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Estado</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Contáctenos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('HomeController@index') }}">Login</a></li>
 
 
                         <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
