@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace sisVentas\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +14,7 @@ class Tarea extends Model
 
 
     protected $fillable =[
-        'nombre','descripcion','fecha_entrega','id_asignatura'
+        'nombre','descripcion','fecha_entrega','id_asignatura','estado',
     ];
 
     protected $guarded =[
