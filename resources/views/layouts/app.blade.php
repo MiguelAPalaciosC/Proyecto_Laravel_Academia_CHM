@@ -69,8 +69,8 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
 
-                        {{-- <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li> --}}
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        {{-- <li><a href="{{ url('/register') }}">Register</a></li> --}}
                     @else
                     <li><a id="menu" href="{{ url('/home') }}">Inicio</a></li>
                     <li class="dropdown">
@@ -89,24 +89,6 @@
                                 @if((Auth::user()->usertype_id_usertype)==3)
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
                                 @endif
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false">
-
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                    @else
-                    
-                        <li class="dropdown">
-                            <a id="name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-expanded="false"><i class=""></i> Modulos <span
-                                    class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Asignaturas</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Actividades</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('EstudianteController@index') }}">Estudiante</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ action('ProfesorController@index') }}">Profesor</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
